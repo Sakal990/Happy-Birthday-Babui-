@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday BABUI ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden;
+      padding-bottom: 60px;
+    }
+
+    h1 {
+      font-family: "Great Vibes", cursive;
+      font-size: 3rem;
+      color: white;
+      margin-top: 25px;
+    }
+
+    h2 {
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      display: none; /* Hidden until countdown ends */
+    }
+
+    /* Countdown */
+    .countdown {
+      background: rgba(255,255,255,0.9);
+      padding: 15px;
+      border-radius: 15px;
+      margin: 20px auto;
+      width: fit-content;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .countdown h3 {
+      color: #ff4d6d;
+    }
+
+    #timer {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    /* Photo Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .photo-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+
+    .photo-card:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    /* Message */
+    .message {
+      background: rgba(255,255,255,0.95);
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 35px;
+      line-height: 1.7;
+      font-size: 15px;
+      color: #333;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    /* Surprise Button */
+    .surprise-btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .surprise-btn:hover {
+      background: #ff1e4d;
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .popup-box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 300px;
+      text-align: center;
+      animation: zoom 0.4s ease;
+    }
+
+    @keyframes zoom {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+
+    .popup-box h2 {
+      color: #ff4d6d;
+    }
+
+    .close-btn {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background: #ff4d6d;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+
+    /* Hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      color: red;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+    }
+
+    footer {
+      margin-top: 40px;
+      color: white;
+      font-size: 14px;
+    }
+
+    /* Fireworks */
+    #fireworks {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      display: none;
+      z-index: 1000;
+    }
+
+    @media(max-width:600px) {
+      h1 { font-size: 2.3rem; }
+      .photo-card img { height: 170px; }
+      .message { font-size: 14px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday BABUI ❤️</h1>
+  <h2>My Love, My Heart, My Everything</h2>
+
+  <div class="countdown">
+    <h3>⏳ Countdown to Your Birthday</h3>
+    <div id="timer">Loading...</div>
+  </div>
+
+  <!-- Hidden Content -->
+  <div class="container" id="content">
+
+    <!-- Photo Gallery -->
+    <div class="gallery">
+      <div class="photo-card"><img src="Photos/1769176746691.jpg"></div>
+      <div class="photo-card"><img src="Photos/1769921496486.jpg"></div>
+      <div class="photo-card"><img src="Photos/1769921742012.jpg"></div>
+      <div class="photo-card"><img src="Photos/IMG_20260124_172159797_HDR_1769330495330edit.jpg"></div>
+    </div>
+
+    <!-- Surprise Button -->
+    <button class="surprise-btn" onclick="openPopup()">🎁 Click for Surprise</button>
+
+    <!-- Message -->
+    <div class="message">
+      <h3>💖 My Birthday Wish for You 💖</h3>
+      <br>
+      <p>
+        Happy Birthday my dear BABUI ❤️  
+        Many many happy returns of the day, my love.<br><br>
+
+        From the day you suddenly came into my life, everything changed in the most beautiful way. You made me feel special, loved, and important. Before you, I never thought someone would care for me like this. But you showed me that love is real, pure, and magical.<br><br>
+
+        I promise you, I will always try my best to keep you happy. Ami chesta korbo jeno tui kokhono koshto na pais, kokhono eka na feel koris. Tui amar jiboner shobcheye precious manush.<br><br>
+
+        Ami shara jibon tor hat dhore rakhbo. Kokhono chharbo na. Tor hasi amar shobcheye boro success.<br><br>
+
+        I love you forever ❤️
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Made with ❤️ for BABUI | Forever Yours
+  </footer>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <h2>💝 Surprise!</h2>
+      <p id="proposalMessage" style="display:none;">
+        BABUI, you are my sunshine, my smile, my everything.  
+        I’m so lucky to have you ❤️
+      </p>
+      <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- Fireworks Canvas -->
+  <canvas id="fireworks"></canvas>
+
+  <script>
+    /* Hearts */
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+
+    /* Popup */
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+      document.getElementById("proposalMessage").style.display = "block"; // show hidden proposal
+    }
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    /* Countdown */
+    const birthday = new Date("2026-02-02 00:00:00").getTime();
+    const timer = setInterval(function () {
+      const now = new Date().getTime();
+      const distance = birthday - now;
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("timer").innerHTML = "🎉 Happy Birthday BABUI 🎉";
+
+        // Reveal hidden content
+        document.getElementById("content").style.display = "block";
+
+        // Launch fireworks
+        launchFireworks();
+
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    }, 1000);
+
+    /* Fireworks Animation */
+    function launchFireworks() {
+      const canvas = document.getElementById("fireworks");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.display = "block";
+
+      const fireworks = [];
+
+      class Firework {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+          this.particles = [];
+          for(let i=0; i<50; i++){
+            this.particles.push({
+              x: this.x,
+              y: this.y,
+              vx: (Math.random() - 0.5) * 8,
+              vy: (Math.random() - 0.5) * 8,
+              alpha: 1
+            });
+          }
+        }
+        update() {
+          this.particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.alpha -= 0.02;
+          });
+        }
+        draw() {
+          this.particles.forEach(p => {
+            ctx.fillStyle = `rgba(255, ${Math.random()*255}, 0, ${p.alpha})`;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 3, 0, Math.PI*2);
+            ctx.fill();
+          });
+        }
+      }
+
+      function animate() {
+        ctx.fillStyle = "rgba(0,0,0,0.1)";
+        ctx.fillRect(0,0,canvas.width, canvas.height);
+
+        if(Math.random() < 0.05) {
+          fireworks.push(new Firework(Math.random()*canvas.width, Math.random()*canvas.height/2));
+        }
+
+        fireworks.forEach((f, i) => {
+          f.update();
+          f.draw();
+          if(f.particles.every(p => p.alpha <= 0)) fireworks.splice(i, 1);
+        });
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
+      setTimeout(() => canvas.style.display = "none", 15000); // fireworks disappear after 15s
+    }
+
+  </script>
+
+</body>
+</html>
